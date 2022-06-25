@@ -1,0 +1,56 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  position: relative;
+  display: table;
+  text-align: center;
+  flex: 0 50%;
+  padding: 12.5px;
+  background-color: white;
+  border: 0.5px solid #f7f7f7;
+  height: 235px;
+
+  @include for-large-up {
+    flex: 0 20%;
+  }
+
+  &__img {
+    max-width: 165.0222222222222px;
+  }
+
+  &__info {
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 12.5px;
+  }
+
+  &__name {
+    margin: 0;
+    font-weight: 700;
+    color: #030303;
+    white-space: normal;
+  }
+
+  &__price {
+    margin: 0;
+    font-size: 0.875em;
+    font-weight: 400;
+  }
+
+  &__sale {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    background-color: #006eff;
+    color: #fff;
+    padding: 4px 10px;
+  }
+}
