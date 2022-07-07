@@ -1,52 +1,44 @@
-const numbersList = [102, 0, 8, 444, 10, -4, 50, 220, 1200];
-
-// input: callback
+// input: array, callback
 // output: array
 
 // callback
 // input: element, index (optional), array (optional)
-// output: new element
+// output: boolean
 
-const mapRes = numbersList.map(el => {
-  const newEl = el * el;
-  return newEl;
-});
+// algo
+// 1. create new arr
+// 2. iterate input arr
+// 3. apply for every el
+// 4. if true - push
 
-console.log(mapRes);
+const filterArrayElements = (arr, callback) => {
+  const resArr = [];
 
-// -- task 2 --
-
-// input: callback
-// output: undefined
-
-// callback
-// input: element
-// output: undefined
-
-const foreachRes = numbersList.forEach(el => {
-  if (el > 0) {
-    console.log(el);
-  }
-});
-
-// -- task 3 --
-
-// input: callback, acc init value (optional)
-// output: number
-
-// callback
-// input: acc, element, index (optional), array (optional)
-// output: new acc
-
-const reduceRes = numbersList.reduce((acc, el) => {
-  console.log('acc', acc);
-  console.log('el', el);
-
-  if (el > 100) {
-    acc += el;
+  for (let index = 0; index < arr.length; index += 1) {
+    if (callback(arr[index], index, arr) === true) {
+      resArr.push(arr[index]);
+    }
   }
 
-  return acc;
-}, 0);
+  return resArr;
+};
 
-console.log(reduceRes);
+// -- test data
+const testCallback = (el, index, arr) => {
+  if (el > 3) {
+    return true;
+  }
+  return false;
+};
+
+console.log(filterArrayElements([1, 2, 2, 3, 3, -3, 4, 4, -4, 5, -5, 5], testCallback));
+console.log(
+  filterArrayElements(['asd', 'dsds', 'adsd', 'asd', 'asd', 'zczc', 'zxc'], el => el === 'asd'),
+);
+console.log(filterArrayElements([undefined, undefined, null, NaN], el => el === undefined));
+
+function multiply(...anyName) {
+  return anyName.reduce((acc, el) => acc * el);
+}
+
+console.log(multiply(10, 2, 5, 7, -2));
