@@ -43,3 +43,7 @@ timer.startTimer(); // context +
 // 1. func called separately
 // 2. called func
 // 3. nested funcrions
+
+const asd = 'Р';
+const zxc = 'P';
+console.log(asd == zxc);
